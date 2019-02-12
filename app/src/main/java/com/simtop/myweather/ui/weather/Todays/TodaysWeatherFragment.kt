@@ -8,6 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.simtop.myweather.R
+import com.simtop.myweather.data.ApixuService
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class TodaysWeatherFragment : Fragment() {
 
@@ -28,6 +32,13 @@ class TodaysWeatherFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(TodaysWeatherViewModel::class.java)
         // TODO: Use the ViewModel
+        // TODO: Do it in test class
+        /*Debug hola, to check if Fetching Data works
+        val apiService = ApixuService()
+        GlobalScope.launch(Dispatchers.Main) {
+            val currentWeatherResponse = apiService.getTodaysWeather("Barcelona").await()
+            val hola = currentWeatherResponse.todaysWeatherEntry.toString()
+        }
+        */
     }
-
 }
