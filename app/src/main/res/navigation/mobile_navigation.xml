@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/mobile_navigation"
+            app:startDestination="@id/todaysWeatherFragment">
+
+    <fragment android:id="@+id/todaysWeatherFragment"
+              android:name="com.simtop.myweather.ui.weather.Todays.TodaysWeatherFragment"
+              android:label="todays_weather_fragment" tools:layout="@layout/todays_weather_fragment"/>
+    <fragment android:id="@+id/nextDaysDetailWeatherFragment"
+              android:name="com.simtop.myweather.ui.weather.NextDays.details.NextDaysDetailWeatherFragment"
+              android:label="next_days_detail_weather_fragment"
+              tools:layout="@layout/next_days_detail_weather_fragment"/>
+    <fragment android:id="@+id/nextDaysWeatherFragment"
+              android:name="com.simtop.myweather.ui.weather.NextDays.list.NextDaysWeatherFragment"
+              android:label="next_days_weather_fragment" tools:layout="@layout/next_days_weather_fragment"/>
+    <fragment android:id="@+id/settingsFragment" android:name="com.simtop.myweather.ui.settings.SettingsFragment"
+              android:label="SettingsFragment"/>
+</navigation>
