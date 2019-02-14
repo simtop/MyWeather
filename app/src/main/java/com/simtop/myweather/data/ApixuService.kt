@@ -1,7 +1,7 @@
 package com.simtop.myweather.data
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import com.simtop.myweather.data.response.TodaysWeatherResponse
+import com.simtop.myweather.data.network.response.TodaysWeatherResponse
 import kotlinx.coroutines.Deferred
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -9,7 +9,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
-import java.util.concurrent.TimeUnit
 
 const val API_KEY = "903807940d8646629e9190628191202"
 

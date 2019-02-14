@@ -1,4 +1,4 @@
-package com.simtop.myweather.data.response
+package com.simtop.myweather.data.db.entity
 
 data class Condition(
     val text: String,
