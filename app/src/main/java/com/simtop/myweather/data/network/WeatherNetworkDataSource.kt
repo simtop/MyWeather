@@ -6,7 +6,7 @@ import com.simtop.myweather.data.network.response.TodaysWeatherResponse
 interface WeatherNetworkDataSource {
     val downloadedTodaysWeather : LiveData<TodaysWeatherResponse>
 
-    suspend fun FetchTodaysWeather(
+    suspend fun fetchTodaysWeather(
         location : String ,
         languageCode : String
     )
