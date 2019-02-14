@@ -1,6 +1,7 @@
 package com.simtop.myweather
 
 import android.app.Application
+import com.jakewharton.threetenabp.AndroidThreeTen
 import com.simtop.myweather.data.db.TodaysWeatherDao
 import com.simtop.myweather.data.db.WeatherDatabase
 import com.simtop.myweather.data.network.*
@@ -25,5 +26,10 @@ class WeatherApplication : Application(), KodeinAware {
         bind<WeatherNetworkDataSource>() with singleton { WeatherNetworkDataSourceImpl(instance()) }
         bind<WeatherRepository>() with singleton { WeatherRepositoryImpl(instance(), instance()) }
 
+    }
+
+    override fun onCreate() {
+        super.onCreate()
+        AndroidThreeTen.init(this)
     }
 }
