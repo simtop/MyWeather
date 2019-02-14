@@ -1,4 +1,4 @@
-package com.simtop.myweather.data
+package com.simtop.myweather.data.network
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.simtop.myweather.data.network.response.TodaysWeatherResponse
@@ -23,7 +23,9 @@ interface ApixuService {
     ): Deferred<TodaysWeatherResponse>
 
     companion object {
-        operator fun invoke(): ApixuService {
+        operator fun invoke(
+            connectivityInterceptor: ConnectivityInterceptor
+        ): ApixuService {
             val requestInterceptor = Interceptor { chain ->
 
                 val url = chain.request()
@@ -41,6 +43,7 @@ interface ApixuService {
 
             val okHttpClient = OkHttpClient.Builder()
                 .addInterceptor(requestInterceptor)
+                .addInterceptor(connectivityInterceptor)
                 .build()
 
             return Retrofit.Builder()

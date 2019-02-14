@@ -8,10 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.simtop.myweather.R
-import com.simtop.myweather.data.ApixuService
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 class TodaysWeatherFragment : Fragment() {
 
