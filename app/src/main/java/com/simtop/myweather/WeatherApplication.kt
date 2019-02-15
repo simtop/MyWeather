@@ -7,11 +7,13 @@ import com.simtop.myweather.data.db.WeatherDatabase
 import com.simtop.myweather.data.network.*
 import com.simtop.myweather.data.repository.WeatherRepository
 import com.simtop.myweather.data.repository.WeatherRepositoryImpl
+import com.simtop.myweather.ui.weather.Todays.TodaysWeatherViewModelFactory
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.androidXModule
 import org.kodein.di.generic.bind
 import org.kodein.di.generic.instance
+import org.kodein.di.generic.provider
 import org.kodein.di.generic.singleton
 
 class WeatherApplication : Application(), KodeinAware {
@@ -25,7 +27,7 @@ class WeatherApplication : Application(), KodeinAware {
         bind() from singleton { ApixuService(instance()) }
         bind<WeatherNetworkDataSource>() with singleton { WeatherNetworkDataSourceImpl(instance()) }
         bind<WeatherRepository>() with singleton { WeatherRepositoryImpl(instance(), instance()) }
-
+        bind() from provider { TodaysWeatherViewModelFactory(instance()) }
     }
 
     override fun onCreate() {

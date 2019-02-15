@@ -4,10 +4,10 @@ import androidx.lifecycle.LiveData
 import com.simtop.myweather.data.network.response.TodaysWeatherResponse
 
 interface WeatherNetworkDataSource {
-    val downloadedTodaysWeather : LiveData<TodaysWeatherResponse>
+    val downloadedTodaysWeather: LiveData<TodaysWeatherResponse>
 
     suspend fun fetchTodaysWeather(
-        location : String ,
-        languageCode : String
+        location: String,
+        languageCode: String
     )
 }

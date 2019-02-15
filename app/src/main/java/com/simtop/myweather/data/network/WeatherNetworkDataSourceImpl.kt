@@ -9,6 +9,29 @@ import com.simtop.myweather.internal.NoConnectivityExeption
 class WeatherNetworkDataSourceImpl(
     private val apixuService: ApixuService
 ) : WeatherNetworkDataSource {
+
+    private val _downloadedTodaysWeather = MutableLiveData<TodaysWeatherResponse>()
+    override val downloadedTodaysWeather: LiveData<TodaysWeatherResponse>
+        get() = _downloadedTodaysWeather
+
+    override suspend fun fetchTodaysWeather(location: String, languageCode: String) {
+        try {
+            val fetchedTodaysWeather = apixuService
+                .getTodaysWeather(location, languageCode)
+                .await()
+            _downloadedTodaysWeather.postValue(fetchedTodaysWeather)
+        }
+        catch (e: NoConnectivityExeption) {
+            Log.e("Connectivity", "No internet connection.", e)
+        }
+    }
+}
+
+
+/*
+class WeatherNetworkDataSourceImpl(
+    private val apixuService: ApixuService
+) : WeatherNetworkDataSource {
     private val _downloadedTodaysWeather = MutableLiveData<TodaysWeatherResponse>()
     override val downloadedTodaysWeather: LiveData<TodaysWeatherResponse>
         get() = _downloadedTodaysWeather
@@ -25,3 +48,4 @@ class WeatherNetworkDataSourceImpl(
         }
     }
 }
+        */
