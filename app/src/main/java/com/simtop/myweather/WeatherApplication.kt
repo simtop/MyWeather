@@ -2,12 +2,11 @@ package com.simtop.myweather
 
 import android.app.Application
 import com.jakewharton.threetenabp.AndroidThreeTen
-import com.simtop.myweather.data.db.TodaysWeatherDao
 import com.simtop.myweather.data.db.WeatherDatabase
 import com.simtop.myweather.data.network.*
 import com.simtop.myweather.data.repository.WeatherRepository
 import com.simtop.myweather.data.repository.WeatherRepositoryImpl
-import com.simtop.myweather.ui.weather.Todays.TodaysWeatherViewModelFactory
+import com.simtop.myweather.ui.weather.todays.TodaysWeatherViewModelFactory
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.androidXModule

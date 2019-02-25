@@ -1,4 +1,4 @@
-package com.simtop.myweather.ui.weather.Todays
+package com.simtop.myweather.ui.weather.todays
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

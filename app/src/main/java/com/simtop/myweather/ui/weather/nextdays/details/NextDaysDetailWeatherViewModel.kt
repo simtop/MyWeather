@@ -1,4 +1,4 @@
-package com.simtop.myweather.ui.weather.NextDays.details
+package com.simtop.myweather.ui.weather.nextdays.details
 
 import androidx.lifecycle.ViewModel;
 

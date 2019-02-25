@@ -5,14 +5,14 @@
             app:startDestination="@id/todaysWeatherFragment">
 
     <fragment android:id="@+id/todaysWeatherFragment"
-              android:name="com.simtop.myweather.ui.weather.Todays.TodaysWeatherFragment"
+              android:name="com.simtop.myweather.ui.weather.todays.TodaysWeatherFragment"
               android:label="todays_weather_fragment" tools:layout="@layout/todays_weather_fragment"/>
     <fragment android:id="@+id/nextDaysDetailWeatherFragment"
-              android:name="com.simtop.myweather.ui.weather.NextDays.details.NextDaysDetailWeatherFragment"
+              android:name="com.simtop.myweather.ui.weather.nextdays.details.NextDaysDetailWeatherFragment"
               android:label="next_days_detail_weather_fragment"
               tools:layout="@layout/next_days_detail_weather_fragment"/>
     <fragment android:id="@+id/nextDaysWeatherFragment"
-              android:name="com.simtop.myweather.ui.weather.NextDays.list.NextDaysWeatherFragment"
+              android:name="com.simtop.myweather.ui.weather.nextdays.list.NextDaysWeatherFragment"
               android:label="next_days_weather_fragment" tools:layout="@layout/next_days_weather_fragment"/>
     <fragment android:id="@+id/settingsFragment" android:name="com.simtop.myweather.ui.settings.SettingsFragment"
               android:label="SettingsFragment"/>

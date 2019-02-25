@@ -1,4 +1,4 @@
-package com.simtop.myweather.ui.weather.NextDays.list
+package com.simtop.myweather.ui.weather.nextdays.list
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
