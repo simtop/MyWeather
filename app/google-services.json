@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "792851667194",
+    "firebase_url": "https://myweather-cde99.firebaseio.com",
+    "project_id": "myweather-cde99",
+    "storage_bucket": "myweather-cde99.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:792851667194:android:1d26ef70a3838a26",
+        "android_client_info": {
+          "package_name": "com.simtop.myweather"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "792851667194-pqjphgnsqpsl0jn2q4hfujs9a0348tla.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.simtop.myweather",
+            "certificate_hash": "5b61bdd352d9cbbace770bdcdd948834799f610e"
+          }
+        },
+        {
+          "client_id": "792851667194-cok5h6hggadarh3u53o4klr5j5gglecb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDn1ruCqs8Jhft-zmNDMKRgWCq4cSvY918"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "792851667194-cok5h6hggadarh3u53o4klr5j5gglecb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

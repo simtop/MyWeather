@@ -28,6 +28,6 @@ class MainActivity : AppCompatActivity() {
     }
     //Back symbol in toolbar
     override fun onSupportNavigateUp(): Boolean {
-        return NavigationUI.navigateUp(null,navController)
+        return NavigationUI.navigateUp(navController,null)
     }
 }
