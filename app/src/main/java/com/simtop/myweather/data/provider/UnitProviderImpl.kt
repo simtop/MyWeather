@@ -1,0 +1,20 @@
+package com.simtop.myweather.data.provider
+
+import android.content.Context
+import android.content.SharedPreferences
+import androidx.preference.PreferenceManager
+import com.simtop.myweather.internal.SystemType
+
+const val UNIT_TYPE ="UNIT_TYPE"
+
+class UnitProviderImpl(context : Context) : UnitProvider {
+    private val appContext = context.applicationContext
+
+    private val preferences : SharedPreferences
+        get() = PreferenceManager.getDefaultSharedPreferences(appContext)
+    override fun getUnitType(): SystemType {
+        val selectedName = preferences.getString(UNIT_TYPE,SystemType.METRIC.name)
+        //!! = Sure is not Null, but in this case I can skip it, because I have default value SystemType.METRIC.name
+        return SystemType.valueOf(selectedName!!)
+    }
+}

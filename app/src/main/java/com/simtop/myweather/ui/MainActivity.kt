@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
 
     }
     //Back symbol in toolbar
+    //Check why we changed order of navController,null after adding firebase connection
     override fun onSupportNavigateUp(): Boolean {
         return NavigationUI.navigateUp(navController,null)
     }
