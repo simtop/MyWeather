@@ -5,13 +5,15 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.simtop.myweather.data.db.entity.TodaysWeatherEntry
+import com.simtop.myweather.data.db.entity.WeatherLocation
 
 @Database(
-    entities = [TodaysWeatherEntry::class],
+    entities = [TodaysWeatherEntry::class, WeatherLocation::class],
     version = 1
 )
 abstract class WeatherDatabase : RoomDatabase() {
     abstract fun currentWeatherDao(): TodaysWeatherDao
+    abstract fun weatherLocationDao() : WeatherLocationDao
 
     companion object {
         @Volatile private var instance: WeatherDatabase? = null

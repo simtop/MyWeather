@@ -5,6 +5,8 @@ import androidx.preference.PreferenceManager
 import com.jakewharton.threetenabp.AndroidThreeTen
 import com.simtop.myweather.data.db.WeatherDatabase
 import com.simtop.myweather.data.network.*
+import com.simtop.myweather.data.provider.LocationProvider
+import com.simtop.myweather.data.provider.LocationProviderImpl
 import com.simtop.myweather.data.provider.UnitProvider
 import com.simtop.myweather.data.provider.UnitProviderImpl
 import com.simtop.myweather.data.repository.WeatherRepository
@@ -25,10 +27,13 @@ class WeatherApplication : Application(), KodeinAware {
         // we could also do WeatherDatabase.invoke()
         bind() from singleton { WeatherDatabase(instance()) }
         bind() from singleton { instance<WeatherDatabase>().currentWeatherDao() }
+        bind() from singleton { instance<WeatherDatabase>().weatherLocationDao() }
         bind<ConnectivityInterceptor>() with singleton { ConnectivityInterceptorImpl(instance()) }
         bind() from singleton { ApixuService(instance()) }
         bind<WeatherNetworkDataSource>() with singleton { WeatherNetworkDataSourceImpl(instance()) }
-        bind<WeatherRepository>() with singleton { WeatherRepositoryImpl(instance(), instance()) }
+        bind<LocationProvider>() with singleton { LocationProviderImpl() }
+        bind<WeatherRepository>() with singleton { WeatherRepositoryImpl(instance(), instance(),
+            instance(),instance()) }
         bind<UnitProvider>() with singleton { UnitProviderImpl(instance()) }
         bind() from provider { TodaysWeatherViewModelFactory(instance(), instance()) }
 
