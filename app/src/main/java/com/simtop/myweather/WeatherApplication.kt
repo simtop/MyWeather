@@ -1,7 +1,9 @@
 package com.simtop.myweather
 
 import android.app.Application
+import android.content.Context
 import androidx.preference.PreferenceManager
+import com.google.android.gms.location.LocationServices
 import com.jakewharton.threetenabp.AndroidThreeTen
 import com.simtop.myweather.data.db.WeatherDatabase
 import com.simtop.myweather.data.network.*
@@ -31,7 +33,8 @@ class WeatherApplication : Application(), KodeinAware {
         bind<ConnectivityInterceptor>() with singleton { ConnectivityInterceptorImpl(instance()) }
         bind() from singleton { ApixuService(instance()) }
         bind<WeatherNetworkDataSource>() with singleton { WeatherNetworkDataSourceImpl(instance()) }
-        bind<LocationProvider>() with singleton { LocationProviderImpl() }
+        bind() from provider { LocationServices.getFusedLocationProviderClient(instance<Context>()) }
+        bind<LocationProvider>() with singleton { LocationProviderImpl(instance(),instance()) }
         bind<WeatherRepository>() with singleton { WeatherRepositoryImpl(instance(), instance(),
             instance(),instance()) }
         bind<UnitProvider>() with singleton { UnitProviderImpl(instance()) }
