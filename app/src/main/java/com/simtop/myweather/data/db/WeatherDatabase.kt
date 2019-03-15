@@ -2,11 +2,12 @@ package com.simtop.myweather.data.db
 
 import android.content.Context
 import androidx.room.*
+import com.simtop.myweather.data.db.entity.FutureWeatherEntry
 import com.simtop.myweather.data.db.entity.TodaysWeatherEntry
 import com.simtop.myweather.data.db.entity.WeatherLocation
 
 @Database(
-    entities = [TodaysWeatherEntry::class, WeatherLocation::class],
+    entities = [TodaysWeatherEntry::class, FutureWeatherEntry::class, WeatherLocation::class],
     version = 1
 )
 @TypeConverters(LocalDateConverter::class)
