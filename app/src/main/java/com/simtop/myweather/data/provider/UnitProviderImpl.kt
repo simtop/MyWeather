@@ -1,8 +1,6 @@
 package com.simtop.myweather.data.provider
 
 import android.content.Context
-import android.content.SharedPreferences
-import androidx.preference.PreferenceManager
 import com.simtop.myweather.internal.SystemType
 
 const val UNIT_TYPE ="UNIT_TYPE"
