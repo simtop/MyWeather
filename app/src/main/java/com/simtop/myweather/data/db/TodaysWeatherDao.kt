@@ -7,8 +7,8 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.simtop.myweather.data.db.entity.TODAYS_WEATHER_ID
 import com.simtop.myweather.data.db.entity.TodaysWeatherEntry
-import com.simtop.myweather.data.db.unittype.ImperialTypeTodaysWeather
-import com.simtop.myweather.data.db.unittype.MetricTypeTodaysWeather
+import com.simtop.myweather.data.db.unittype.today.ImperialTypeTodaysWeather
+import com.simtop.myweather.data.db.unittype.today.MetricTypeTodaysWeather
 
 @Dao
 interface TodaysWeatherDao {

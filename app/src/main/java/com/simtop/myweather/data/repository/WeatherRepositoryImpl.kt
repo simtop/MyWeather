@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import com.simtop.myweather.data.db.TodaysWeatherDao
 import com.simtop.myweather.data.db.WeatherLocationDao
 import com.simtop.myweather.data.db.entity.WeatherLocation
-import com.simtop.myweather.data.db.unittype.UnitSpecificType
+import com.simtop.myweather.data.db.unittype.today.UnitSpecificType
 import com.simtop.myweather.data.network.WeatherNetworkDataSource
 import com.simtop.myweather.data.network.response.TodaysWeatherResponse
 import com.simtop.myweather.data.provider.LocationProvider

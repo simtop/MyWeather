@@ -2,7 +2,7 @@ package com.simtop.myweather.data.repository
 
 import androidx.lifecycle.LiveData
 import com.simtop.myweather.data.db.entity.WeatherLocation
-import com.simtop.myweather.data.db.unittype.UnitSpecificType
+import com.simtop.myweather.data.db.unittype.today.UnitSpecificType
 
 interface WeatherRepository {
     /**

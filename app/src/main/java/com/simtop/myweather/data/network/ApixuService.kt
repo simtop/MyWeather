@@ -1,6 +1,7 @@
 package com.simtop.myweather.data.network
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import com.simtop.myweather.data.network.response.FutureWeatherResponse
 import com.simtop.myweather.data.network.response.TodaysWeatherResponse
 import kotlinx.coroutines.Deferred
 import okhttp3.Interceptor
@@ -21,6 +22,16 @@ interface ApixuService {
         @Query("q") location: String,
         @Query("lang") languageCode: String = "en"
     ): Deferred<TodaysWeatherResponse>
+
+
+    //http://api.apixu.com/v1/forecast.json?key=903807940d8646629e9190628191202&q=Barcelona&days=1
+    @GET("forecast.json")
+    fun getFutureWeather(
+        @Query("q") location: String,
+        @Query("days") days: Int,
+        @Query("lang") languageCode: String = "en"
+    ): Deferred<FutureWeatherResponse>
+
 
     companion object {
         operator fun invoke(

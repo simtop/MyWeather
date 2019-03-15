@@ -1,9 +1,7 @@
 package com.simtop.myweather.data.db
 
 import android.content.Context
-import androidx.room.Database
-import androidx.room.Room
-import androidx.room.RoomDatabase
+import androidx.room.*
 import com.simtop.myweather.data.db.entity.TodaysWeatherEntry
 import com.simtop.myweather.data.db.entity.WeatherLocation
 
@@ -11,8 +9,10 @@ import com.simtop.myweather.data.db.entity.WeatherLocation
     entities = [TodaysWeatherEntry::class, WeatherLocation::class],
     version = 1
 )
+@TypeConverters(LocalDateConverter::class)
 abstract class WeatherDatabase : RoomDatabase() {
     abstract fun currentWeatherDao(): TodaysWeatherDao
+    abstract fun futureWeaatherDao() : FutureWeatherDao
     abstract fun weatherLocationDao() : WeatherLocationDao
 
     companion object {

@@ -1,4 +1,4 @@
-package com.simtop.myweather.data.db.unittype
+package com.simtop.myweather.data.db.unittype.today
 
 interface UnitSpecificType {
     val temperature: Double
