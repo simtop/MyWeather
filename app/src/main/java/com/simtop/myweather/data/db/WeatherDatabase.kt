@@ -12,8 +12,8 @@ import com.simtop.myweather.data.db.entity.WeatherLocation
 )
 @TypeConverters(LocalDateConverter::class)
 abstract class WeatherDatabase : RoomDatabase() {
-    abstract fun currentWeatherDao(): TodaysWeatherDao
-    abstract fun futureWeaatherDao() : FutureWeatherDao
+    abstract fun todaysWeatherDao(): TodaysWeatherDao
+    abstract fun futureWeatherDao() : FutureWeatherDao
     abstract fun weatherLocationDao() : WeatherLocationDao
 
     companion object {

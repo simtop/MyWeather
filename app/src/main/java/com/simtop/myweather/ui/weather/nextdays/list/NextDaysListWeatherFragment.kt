@@ -9,13 +9,13 @@ import android.view.ViewGroup
 
 import com.simtop.myweather.R
 
-class NextDaysWeatherFragment : Fragment() {
+class NextDaysListWeatherFragment : Fragment() {
 
     companion object {
-        fun newInstance() = NextDaysWeatherFragment()
+        fun newInstance() = NextDaysListWeatherFragment()
     }
 
-    private lateinit var viewModel: NextDaysWeatherViewModel
+    private lateinit var viewModel: NextDaysListWeatherViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,7 +26,7 @@ class NextDaysWeatherFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(NextDaysWeatherViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(NextDaysListWeatherViewModel::class.java)
         // TODO: Use the ViewModel
     }
 

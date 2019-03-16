@@ -12,7 +12,7 @@
               android:label="next_days_detail_weather_fragment"
               tools:layout="@layout/next_days_detail_weather_fragment"/>
     <fragment android:id="@+id/nextDaysWeatherFragment"
-              android:name="com.simtop.myweather.ui.weather.nextdays.list.NextDaysWeatherFragment"
+              android:name="com.simtop.myweather.ui.weather.nextdays.list.NextDaysListWeatherFragment"
               android:label="next_days_weather_fragment" tools:layout="@layout/next_days_weather_fragment"/>
     <fragment android:id="@+id/settingsFragment" android:name="com.simtop.myweather.ui.settings.SettingsFragment"
               android:label="SettingsFragment"/>

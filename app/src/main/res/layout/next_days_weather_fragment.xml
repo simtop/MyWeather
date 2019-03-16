@@ -4,7 +4,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.weather.nextdays.list.NextDaysWeatherFragment">
+        tools:context=".ui.weather.nextdays.list.NextDaysListWeatherFragment">
 
     <TextView
             android:layout_width="match_parent"

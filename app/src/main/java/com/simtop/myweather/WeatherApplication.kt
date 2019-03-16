@@ -13,6 +13,7 @@ import com.simtop.myweather.data.provider.UnitProvider
 import com.simtop.myweather.data.provider.UnitProviderImpl
 import com.simtop.myweather.data.repository.WeatherRepository
 import com.simtop.myweather.data.repository.WeatherRepositoryImpl
+import com.simtop.myweather.ui.weather.nextdays.list.NextDaysListWeatherViewModelFactory
 import com.simtop.myweather.ui.weather.todays.TodaysWeatherViewModelFactory
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
@@ -28,7 +29,8 @@ class WeatherApplication : Application(), KodeinAware {
         //singleton, because we have only one instance of database
         // we could also do WeatherDatabase.invoke()
         bind() from singleton { WeatherDatabase(instance()) }
-        bind() from singleton { instance<WeatherDatabase>().currentWeatherDao() }
+        bind() from singleton { instance<WeatherDatabase>().todaysWeatherDao() }
+        bind() from singleton { instance<WeatherDatabase>().futureWeatherDao() }
         bind() from singleton { instance<WeatherDatabase>().weatherLocationDao() }
         bind<ConnectivityInterceptor>() with singleton { ConnectivityInterceptorImpl(instance()) }
         bind() from singleton { ApixuService(instance()) }
@@ -36,10 +38,10 @@ class WeatherApplication : Application(), KodeinAware {
         bind() from provider { LocationServices.getFusedLocationProviderClient(instance<Context>()) }
         bind<LocationProvider>() with singleton { LocationProviderImpl(instance(),instance()) }
         bind<WeatherRepository>() with singleton { WeatherRepositoryImpl(instance(), instance(),
-            instance(),instance()) }
+            instance(),instance(), instance()) }
         bind<UnitProvider>() with singleton { UnitProviderImpl(instance()) }
         bind() from provider { TodaysWeatherViewModelFactory(instance(), instance()) }
-
+        bind() from provider { NextDaysListWeatherViewModelFactory(instance(), instance()) }
     }
 
     override fun onCreate() {
