@@ -36,6 +36,13 @@ android {
     }
 }
 
+//We add this to allow access to item_next_days_weather from NextDaysWeatherItem without findId
+//And we couldn't access it like usual, because the viewModel of "Groupie" is a LayoutContainer and not a normal
+//viewModel
+androidExtensions{
+    experimental = true
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
