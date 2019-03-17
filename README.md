@@ -1,2 +1,4 @@
 # MyWeather
-An app using Kotlin and all last new things that include Android Jetpack
+
+
+A beatifull weather Android Aplication written in Kotlin, using last technology of Android Jetpack, and using libraries : Navigation, Room, Gson, Kotlin Android Coroutines,Material Design, Google Geolocalization,  ViewModel, Kodein, Glide, Gropie RecyclerView
