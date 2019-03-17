@@ -5,7 +5,8 @@ import com.simtop.myweather.data.db.FutureWeatherDao
 import com.simtop.myweather.data.db.TodaysWeatherDao
 import com.simtop.myweather.data.db.WeatherLocationDao
 import com.simtop.myweather.data.db.entity.WeatherLocation
-import com.simtop.myweather.data.db.unittype.future.UnitSpecificSimpleFutureWeatherEntry
+import com.simtop.myweather.data.db.unittype.future.detail.UnitSpecificDetailFutureWeatherEntry
+import com.simtop.myweather.data.db.unittype.future.list.UnitSpecificSimpleFutureWeatherEntry
 import com.simtop.myweather.data.db.unittype.today.UnitSpecificType
 import com.simtop.myweather.data.network.FORECAST_DAYS_COUNT
 import com.simtop.myweather.data.network.WeatherNetworkDataSource
@@ -59,6 +60,18 @@ class WeatherRepositoryImpl(
             //type = true if metric
             return@withContext if (type) futureWeatherDao.getSimpleFutureWeatherMetric(startDate)
             else futureWeatherDao.getSimpleFutureWeatherImperial(startDate)
+        }
+    }
+
+    override suspend fun getFutureWeatherByDate(
+        date: LocalDate,
+        metric: Boolean
+    ): LiveData<out UnitSpecificDetailFutureWeatherEntry> {
+        return withContext(Dispatchers.IO) {
+            //init Not needed, because if we are here we alredy used getFutureWeatherList, but just to be safe
+            initWeatherData()
+            return@withContext if (metric) futureWeatherDao.getDetailedWeatherByDateMetric(date)
+            else futureWeatherDao.getDetailedWeatherByDateImperial(date)
         }
     }
 

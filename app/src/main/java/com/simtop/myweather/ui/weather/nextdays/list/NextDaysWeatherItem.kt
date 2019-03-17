@@ -1,8 +1,8 @@
 package com.simtop.myweather.ui.weather.nextdays.list
 
 import com.simtop.myweather.R
-import com.simtop.myweather.data.db.unittype.future.MetricSimpleFutureWeatherEntry
-import com.simtop.myweather.data.db.unittype.future.UnitSpecificSimpleFutureWeatherEntry
+import com.simtop.myweather.data.db.unittype.future.list.MetricSimpleFutureWeatherEntry
+import com.simtop.myweather.data.db.unittype.future.list.UnitSpecificSimpleFutureWeatherEntry
 import com.simtop.myweather.internal.glide.GlideApp
 import com.xwray.groupie.kotlinandroidextensions.Item
 import com.xwray.groupie.kotlinandroidextensions.ViewHolder

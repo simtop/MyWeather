@@ -8,10 +8,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.simtop.myweather.R
-import com.simtop.myweather.data.db.unittype.future.UnitSpecificSimpleFutureWeatherEntry
+import com.simtop.myweather.data.db.LocalDateConverter
+import com.simtop.myweather.data.db.unittype.future.list.UnitSpecificSimpleFutureWeatherEntry
 import com.simtop.myweather.ui.base.ScopedFragment
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.kotlinandroidextensions.ViewHolder
@@ -22,7 +24,7 @@ import kotlinx.coroutines.launch
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.closestKodein
 import org.kodein.di.generic.instance
-import java.util.Collections.addAll
+import org.threeten.bp.LocalDate
 
 //ScopedFragment because I want to use coroutines
 class NextDaysListWeatherFragment : ScopedFragment(), KodeinAware {
@@ -84,9 +86,18 @@ class NextDaysListWeatherFragment : ScopedFragment(), KodeinAware {
         }
 
         groupAdapter.setOnItemClickListener { item, view ->
-            Toast.makeText(this@NextDaysListWeatherFragment.context, "Clicked", Toast.LENGTH_SHORT).show()
-        }
+            (item as? NextDaysWeatherItem)?.let {
+                showWeatherDetail(it.weatherEntry.date, view)
+            }        }
     }
+
+    private fun showWeatherDetail(date: LocalDate, view: View) {
+        val dateString = LocalDateConverter.dateToString(date)!!
+        //ReBuilding is needed to autogenerate NextDaysListWeatherFragmentDirections
+        val actionDetail = NextDaysListWeatherFragmentDirections.actionDetail(dateString)
+        Navigation.findNavController(view).navigate(actionDetail)
+    }
+
 
     private fun List<UnitSpecificSimpleFutureWeatherEntry>.toNextDaysWeatherItems() : List<NextDaysWeatherItem> {
         return this.map {

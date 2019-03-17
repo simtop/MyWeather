@@ -1,4 +1,4 @@
-package com.simtop.myweather.data.db.unittype.future
+package com.simtop.myweather.data.db.unittype.future.list
 
 import androidx.room.ColumnInfo
 import org.threeten.bp.LocalDate

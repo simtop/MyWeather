@@ -13,15 +13,14 @@ import com.simtop.myweather.data.provider.UnitProvider
 import com.simtop.myweather.data.provider.UnitProviderImpl
 import com.simtop.myweather.data.repository.WeatherRepository
 import com.simtop.myweather.data.repository.WeatherRepositoryImpl
+import com.simtop.myweather.ui.weather.nextdays.details.NextDaysDetailWeatherViewModelFactory
 import com.simtop.myweather.ui.weather.nextdays.list.NextDaysListWeatherViewModelFactory
 import com.simtop.myweather.ui.weather.todays.TodaysWeatherViewModelFactory
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.androidXModule
-import org.kodein.di.generic.bind
-import org.kodein.di.generic.instance
-import org.kodein.di.generic.provider
-import org.kodein.di.generic.singleton
+import org.kodein.di.generic.*
+import org.threeten.bp.LocalDate
 
 class WeatherApplication : Application(), KodeinAware {
     override val kodein = Kodein.lazy {
@@ -42,6 +41,9 @@ class WeatherApplication : Application(), KodeinAware {
         bind<UnitProvider>() with singleton { UnitProviderImpl(instance()) }
         bind() from provider { TodaysWeatherViewModelFactory(instance(), instance()) }
         bind() from provider { NextDaysListWeatherViewModelFactory(instance(), instance()) }
+        //detailDate is not a constant is allwas different
+        bind() from factory { detailDate : LocalDate ->
+            NextDaysDetailWeatherViewModelFactory(detailDate, instance(), instance()) }
     }
 
     override fun onCreate() {
