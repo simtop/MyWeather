@@ -9,13 +9,24 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationResult
 import com.simtop.myweather.R
+import com.simtop.myweather.ui.weather.nextdays.list.NextDaysWeatherItem
+import com.xwray.groupie.GroupAdapter
+import com.xwray.groupie.kotlinandroidextensions.ViewHolder
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main_test.*
+import kotlinx.android.synthetic.main.activity_main_test.recyclerView
+import kotlinx.android.synthetic.main.activity_main_test.toolbar
+import kotlinx.android.synthetic.main.next_days_weather_fragment.*
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.closestKodein
 import org.kodein.di.generic.instance
@@ -25,7 +36,7 @@ private const val MY_PERMISSION_ACCESS_COARSE_LOCATION = 1
 class MainActivity : AppCompatActivity(), KodeinAware {
 
     override val kodein by closestKodein()
-    private val fusedLocationProviderClient : FusedLocationProviderClient by instance()
+    private val fusedLocationProviderClient : FusedLocationProviderClient by instance<FusedLocationProviderClient>()
 
     private val locationCallback = object : LocationCallback() {
         override fun onLocationResult(p0: LocationResult?) {
@@ -41,7 +52,7 @@ class MainActivity : AppCompatActivity(), KodeinAware {
         setSupportActionBar(toolbar)
 
         navController = Navigation.findNavController(this, R.id.nav_host_fragment)
-
+        //navController2 = Navigation.findNavController(this, R.id.nav_host_fragment3)
         bottom_nav.setupWithNavController(navController)
 
         NavigationUI.setupActionBarWithNavController(this,navController)

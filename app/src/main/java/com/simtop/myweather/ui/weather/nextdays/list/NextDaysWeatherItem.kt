@@ -3,6 +3,7 @@ package com.simtop.myweather.ui.weather.nextdays.list
 import com.simtop.myweather.R
 import com.simtop.myweather.data.db.unittype.future.list.MetricSimpleFutureWeatherEntry
 import com.simtop.myweather.data.db.unittype.future.list.UnitSpecificSimpleFutureWeatherEntry
+import com.simtop.myweather.internal.formatNewUrl
 import com.simtop.myweather.internal.glide.GlideApp
 import com.xwray.groupie.kotlinandroidextensions.Item
 import com.xwray.groupie.kotlinandroidextensions.ViewHolder
@@ -40,7 +41,7 @@ class NextDaysWeatherItem(
 
     private fun ViewHolder.updateConditionImage() {
         GlideApp.with(this.containerView)
-            .load("http:" + weatherEntry.conditionIconUrl)
+            .load(("http:" + weatherEntry.conditionIconUrl).formatNewUrl())
             .into(imageView_condition_icon)
     }
 }

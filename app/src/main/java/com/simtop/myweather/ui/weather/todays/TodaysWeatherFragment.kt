@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 
 import com.simtop.myweather.R
+import com.simtop.myweather.internal.formatNewUrl
 import com.simtop.myweather.ui.base.ScopedFragment
 import kotlinx.android.synthetic.main.todays_weather_fragment.*
 import kotlinx.coroutines.launch
@@ -20,7 +21,7 @@ import org.kodein.di.generic.instance
 class TodaysWeatherFragment : ScopedFragment(), KodeinAware {
 
     override val kodein by closestKodein()
-    private val viewModelFactory : TodaysWeatherViewModelFactory by instance()
+    private val viewModelFactory : TodaysWeatherViewModelFactory by instance<TodaysWeatherViewModelFactory>()
 
     private lateinit var viewModel: TodaysWeatherViewModel
 
@@ -62,7 +63,7 @@ class TodaysWeatherFragment : ScopedFragment(), KodeinAware {
             updateVisibility(it.visibilityDistance)
 
             Glide.with(this@TodaysWeatherFragment)
-                .load("http:${it.conditionIconUrl}")
+                .load("http:${(it.conditionIconUrl).formatNewUrl()}")
                 .into(imageView_condition_icon)
 
         })

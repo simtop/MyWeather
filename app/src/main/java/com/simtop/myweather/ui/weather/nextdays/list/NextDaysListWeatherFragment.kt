@@ -15,6 +15,7 @@ import com.simtop.myweather.R
 import com.simtop.myweather.data.db.LocalDateConverter
 import com.simtop.myweather.data.db.unittype.future.list.UnitSpecificSimpleFutureWeatherEntry
 import com.simtop.myweather.ui.base.ScopedFragment
+import com.simtop.myweather.ui.weather.todays.TodaysWeatherViewModelFactory
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.kotlinandroidextensions.ViewHolder
 
@@ -30,7 +31,7 @@ import org.threeten.bp.LocalDate
 class NextDaysListWeatherFragment : ScopedFragment(), KodeinAware {
 
     override val kodein by closestKodein()
-    private val viewModelFactory : NextDaysListWeatherViewModelFactory by instance()
+    private val viewModelFactory : NextDaysListWeatherViewModelFactory by instance<NextDaysListWeatherViewModelFactory>()
 
     private lateinit var viewModel: NextDaysListWeatherViewModel
 

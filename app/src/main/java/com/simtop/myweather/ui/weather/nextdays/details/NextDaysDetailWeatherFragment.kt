@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import com.simtop.myweather.R
 import com.simtop.myweather.data.db.LocalDateConverter
 import com.simtop.myweather.internal.DateNotFoundException
+import com.simtop.myweather.internal.formatNewUrl
 import com.simtop.myweather.internal.glide.GlideApp
 import com.simtop.myweather.ui.base.ScopedFragment
 import kotlinx.android.synthetic.main.next_days_detail_weather_fragment.*
@@ -28,7 +29,7 @@ class NextDaysDetailWeatherFragment : ScopedFragment(), KodeinAware {
     override val kodein by closestKodein()
 
     private val viewModelFactoryInstanceFactory
-            : ((LocalDate) -> NextDaysDetailWeatherViewModelFactory) by factory()
+            : ((LocalDate) -> NextDaysDetailWeatherViewModelFactory) by factory<LocalDate, NextDaysDetailWeatherViewModelFactory>()
 
     private lateinit var viewModel: NextDaysDetailWeatherViewModel
 
@@ -73,7 +74,7 @@ class NextDaysDetailWeatherFragment : ScopedFragment(), KodeinAware {
             updateUv(weatherEntry.uv)
 
             GlideApp.with(this@NextDaysDetailWeatherFragment)
-                .load("http:" + weatherEntry.conditionIconUrl)
+                .load(("http:" + weatherEntry.conditionIconUrl).formatNewUrl())
                 .into(imageView_condition_icon)
         })
     }
